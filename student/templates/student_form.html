@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %} Create/Update Student {% endblock %}
+{% block content %}
+    <h2 class="container">{% if form.instance.pk %}Update{% else %}Register{% endif %} Student</h2>
+    <p class="container">Student Add Successfully {{ student.name }}?</p>
+    <form class="container" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Add Student</button>
+    </form>
+    <a class="container" href="{% url 'student_list' %}">Back</a>
+{% endblock %}
